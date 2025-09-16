@@ -6,15 +6,16 @@ import { CssBaseline } from '@mui/material'
 import App from './App'
 import PeoplePage from './pages/PeoplePage'
 import PersonPage from './pages/PersonPage'
+import {AppRoutes} from "./routes/routes";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: AppRoutes.ROOT,
     element: <App />,
     children: [
       { index: true, element: <PeoplePage /> },
-      { path: 'person/:id', element: <PersonPage /> },
-      { path: '*', element: <Navigate to="/" replace /> },
+      { path: AppRoutes.PERSON, element: <PersonPage /> },
+      { path: AppRoutes.NOT_FOUND, element: <Navigate to={AppRoutes.ROOT} replace /> },
     ],
   },
 ])

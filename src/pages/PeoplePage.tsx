@@ -16,6 +16,7 @@ import {
 import { Link } from 'react-router-dom'
 
 import type { PagedResponse, Person } from '../types/swapi'
+import {getRoutePerson} from "../routes/routes";
 
 const PeoplePage: FC = () => {
   const [page, setPage] = useState<number>(1)
@@ -60,7 +61,7 @@ const PeoplePage: FC = () => {
           return (
             <Grid key={p.url} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
               <Card variant="outlined">
-                <CardActionArea component={Link} to={`/person/${id}`}>
+                <CardActionArea component={Link} to={getRoutePerson(id)}>
                   <CardContent>
                     <Typography variant="h6">{p.name}</Typography>
                     <Typography variant="body2">Gender: {p.gender}</Typography>

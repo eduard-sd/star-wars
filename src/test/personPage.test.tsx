@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import PersonPage from '../pages/PersonPage'
+import {AppRoutes, getRoutePerson} from "../routes/routes";
 
 vi.mock('../api/swapi', () => ({
     fetchPerson: async () => ({
@@ -17,13 +18,13 @@ vi.mock('../api/swapi', () => ({
     }),
 }))
 
-function renderWithProviders(path = '/person/1') {
+function renderWithProviders(path = getRoutePerson(1)) {
     const client = new QueryClient()
     return render(
         <QueryClientProvider client={client}>
             <MemoryRouter initialEntries={[path]}>
                 <Routes>
-                    <Route path="/person/:id" element={<PersonPage />} />
+                    <Route path={AppRoutes.PERSON} element={<PersonPage />} />
                 </Routes>
             </MemoryRouter>
         </QueryClientProvider>

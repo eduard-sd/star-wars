@@ -1,6 +1,7 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
 import { AppBar, Toolbar, Typography, Container, Box } from '@mui/material'
 import type { FC } from 'react'
+import {AppRoutes} from "./routes/routes";
 
 const App: FC = () => {
   const loc = useLocation()
@@ -11,7 +12,7 @@ const App: FC = () => {
           <Typography
             variant="h6"
             component={Link}
-            to="/"
+            to={AppRoutes.ROOT}
             style={{ color: 'inherit', textDecoration: 'none' }}
           >
             SWAPI People
