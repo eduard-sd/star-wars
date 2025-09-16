@@ -29,3 +29,9 @@ yarn-error.log*
 package-lock.json
 
 stats.html
+
+# dependencies
+node_modules
+
+# build output
+dist

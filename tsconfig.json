@@ -10,5 +10,7 @@
     "verbatimModuleSyntax": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "outDir": "./dist",
+    "noEmit": true
   }
 }
