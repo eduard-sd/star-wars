@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { CssBaseline } from '@mui/material'
 import App from './App'
@@ -14,6 +14,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <PeoplePage /> },
       { path: 'person/:id', element: <PersonPage /> },
+      { path: '*', element: <Navigate to="/" replace /> },
     ],
   },
 ])
